@@ -1,12 +1,15 @@
 import { DefaultTheme, createGlobalStyle } from "styled-components";
 
+import { normalize } from "styled-normalize";
+
 const GlobalStyle = createGlobalStyle<DefaultTheme>`
-*{
-    /* transition: 0.2s ease-in-out; */
-}
+
+${normalize}
+
 body{
     background-color: ${({ theme }) => theme.background};
     margin: 0;
+    color: ${({ theme }) => theme.text};
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

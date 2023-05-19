@@ -1,21 +1,25 @@
 import { Theme } from "./types";
 
 const darkTheme: Theme = {
-  primary: "#00bcd4",
-  secondary: "#f3f3f3",
-  border: "#e0e0e0",
-  text: "#fff",
-  background: "#212121",
-  indicator: "#FFCC00",
+  primary: "#5DEB41",
+  secondary: "#7664A9",
+  border: "#ffffff",
+  text: "#ffffff",
+  background: "#222325",
+  indicator: "#1E9B04",
+  contrast: "#ffffff",
+  neutral: "#222325",
 };
 
 const lightTheme: Theme = {
-  primary: "#003366",
-  secondary: "#eee",
-  border: "#878787",
-  text: "#000",
-  background: "#fff",
-  indicator: "#ccc",
+  primary: "#ffc73a",
+  secondary: "#949CFF",
+  border: "#222325",
+  text: "#222325",
+  background: "#f7f5ed",
+  indicator: "#FC7557",
+  contrast: "#222325",
+  neutral: "#ffffff",
 };
 
 export const theme = {

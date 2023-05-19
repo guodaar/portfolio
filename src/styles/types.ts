@@ -5,4 +5,6 @@ export type Theme = {
   text: string;
   background: string;
   indicator: string;
+  contrast: string;
+  neutral: string;
 };
