@@ -2,6 +2,7 @@ import styled, { ThemeProvider } from "styled-components";
 
 import Footer from "./components/Footer/Footer";
 import GlobalStyle from "./global";
+import SideBar from "./components/SideBar/SideBar";
 import TopBar from "./components/TopBar/TopBar";
 import { theme } from "./styles/theme";
 import { useState } from "react";
@@ -15,8 +16,13 @@ function App() {
     <ThemeProvider theme={isDarkMode ? theme.dark : theme.light}>
       <Container>
         <GlobalStyle />
-        <TopBar toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
-        <Footer />
+        <header>
+          <TopBar toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
+        </header>
+        <Main>
+          <SideBar />
+          <Content></Content>
+        </Main>
       </Container>
     </ThemeProvider>
   );
@@ -30,3 +36,11 @@ const Container = styled.div`
   justify-content: space-between;
   min-height: 100vh;
 `;
+
+const Main = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: row-reverse;
+`;
+
+const Content = styled.div``;
