@@ -2,6 +2,7 @@ import { Theme } from "./types";
 
 const darkTheme: Theme = {
   primary: "#5DEB41",
+  primaryHover: "#34cb15",
   secondary: "#7664A9",
   border: "#ffffff",
   text: "#ffffff",
@@ -13,6 +14,7 @@ const darkTheme: Theme = {
 
 const lightTheme: Theme = {
   primary: "#ffc73a",
+  primaryHover: "#f5af00",
   secondary: "#949CFF",
   border: "#222325",
   text: "#222325",
