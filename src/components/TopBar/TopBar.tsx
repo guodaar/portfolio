@@ -1,7 +1,8 @@
-import { BiMoon, BiSun } from "react-icons/bi";
+import { HiMoon, HiOutlineMoon, HiOutlineSun, HiSun } from "react-icons/hi";
 
 import Button from "../UI/Button";
 import styled from "styled-components";
+import { useState } from "react";
 
 type Props = {
   isDarkMode: boolean;
@@ -9,8 +10,18 @@ type Props = {
 };
 
 const TopBar = ({ isDarkMode, toggleTheme }: Props) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   const handleClick = () => {
     console.log("clicked");
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
   };
 
   return (
@@ -18,14 +29,29 @@ const TopBar = ({ isDarkMode, toggleTheme }: Props) => {
       <Logo>Guoda Codes</Logo>
       <Menu>
         <Navigation>
-          <NavItem>About</NavItem>
+          <NavItem>About me</NavItem>
+          <NavItem>Skills</NavItem>
           <NavItem>Projects</NavItem>
         </Navigation>
         <Button onClick={handleClick} accent>
           Contact me
         </Button>
-        <ThemeToggle onClick={toggleTheme}>
-          {isDarkMode ? <BiSun /> : <BiMoon />}
+        <ThemeToggle
+          onClick={toggleTheme}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          {isDarkMode ? (
+            isHovered ? (
+              <HiSun />
+            ) : (
+              <HiOutlineSun />
+            )
+          ) : isHovered ? (
+            <HiMoon />
+          ) : (
+            <HiOutlineMoon />
+          )}
         </ThemeToggle>
       </Menu>
     </Container>
@@ -40,7 +66,6 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 3vw;
 `;
 
 const Logo = styled.h1``;
@@ -57,9 +82,32 @@ const Navigation = styled.nav`
 `;
 
 const NavItem = styled.a`
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  font-size: 1.2rem;
+  font-weight: 600;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1.5px;
+    bottom: -4px;
+    left: 0;
+    background-color: ${({ theme }) => theme.indicator};
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
   &:hover {
-    cursor: pointer;
     color: ${({ theme }) => theme.indicator};
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
   }
 `;
 

@@ -42,7 +42,7 @@ export default Button;
 
 const StyledButton = styled.button<{ accent: boolean; fullWidth: boolean }>`
   background-color: ${({ accent, theme }) =>
-    accent ? theme.primary : theme.neutral};
+    accent ? theme.primary : theme.background};
   color: ${({ accent, theme }) => (accent ? darkColor : theme.contrast)};
   width: ${({ fullWidth }) => (fullWidth ? "100%" : "auto")};
   font-size: 1.1rem;
@@ -52,10 +52,14 @@ const StyledButton = styled.button<{ accent: boolean; fullWidth: boolean }>`
     accent ? theme.primary : theme.border};
   border-radius: ${roundedBorder};
   padding: 10px 16px;
+  font-weight: 600;
   transition: ${transition};
 
   &:hover {
+    background-color: ${({ accent, theme }) =>
+      accent ? theme.primaryHover : theme.primaryHover};
     border-color: ${({ accent, theme }) =>
-      accent ? theme.contrast : theme.border};
+      accent ? theme.primaryHover : theme.primaryHover};
+    color: ${darkColor};
   }
 `;
