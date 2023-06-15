@@ -54,4 +54,6 @@ const Container = styled.div`
   margin: 0 3vw;
 `;
 
-const Content = styled.main``;
+const Content = styled.main`
+  padding: 32px 5vw;
+`;

@@ -1,4 +1,4 @@
-import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
+import { BsGithub, BsLinkedin } from "react-icons/bs";
 import {
   HiOutlineArrowNarrowLeft,
   HiOutlineArrowNarrowRight,
@@ -19,11 +19,6 @@ const SideBar = () => {
         <li>
           <a href="https://github.com/guodaar" target="_blank">
             <BsGithub />
-          </a>
-        </li>
-        <li>
-          <a href="https://www.instagram.com/guodaparke/" target="_blank">
-            <BsInstagram />
           </a>
         </li>
       </Socials>
