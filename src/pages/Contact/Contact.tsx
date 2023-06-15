@@ -1,3 +1,4 @@
+import SectionHeader from "../../components/Headers/SectionHeader";
 import styled from "styled-components";
 
 type Props = {
@@ -5,7 +6,11 @@ type Props = {
 };
 
 const Contact = ({ contactRef }: Props) => {
-  return <Container ref={contactRef}>Contact</Container>;
+  return (
+    <Container ref={contactRef}>
+      <SectionHeader>Contact</SectionHeader>
+    </Container>
+  );
 };
 
 export default Contact;

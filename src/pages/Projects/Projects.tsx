@@ -1,3 +1,4 @@
+import SectionHeader from "../../components/Headers/SectionHeader";
 import styled from "styled-components";
 
 type Props = {
@@ -5,7 +6,11 @@ type Props = {
 };
 
 const Projects = ({ projectsRef }: Props) => {
-  return <Container ref={projectsRef}>Projects</Container>;
+  return (
+    <Container ref={projectsRef}>
+      <SectionHeader>Projects</SectionHeader>
+    </Container>
+  );
 };
 
 export default Projects;

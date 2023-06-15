@@ -1,3 +1,4 @@
+import SectionHeader from "../../components/Headers/SectionHeader";
 import styled from "styled-components";
 
 type Props = {
@@ -5,7 +6,11 @@ type Props = {
 };
 
 const Skills = ({ skillsRef }: Props) => {
-  return <Container ref={skillsRef}>Skills</Container>;
+  return (
+    <Container ref={skillsRef}>
+      <SectionHeader>Skills</SectionHeader>
+    </Container>
+  );
 };
 
 export default Skills;

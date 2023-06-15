@@ -1,3 +1,4 @@
+import SectionHeader from "../../components/Headers/SectionHeader";
 import styled from "styled-components";
 
 type Props = {
@@ -5,7 +6,11 @@ type Props = {
 };
 
 const About = ({ aboutRef }: Props) => {
-  return <Container ref={aboutRef}>About</Container>;
+  return (
+    <Container ref={aboutRef}>
+      <SectionHeader>About Me</SectionHeader>
+    </Container>
+  );
 };
 
 export default About;
