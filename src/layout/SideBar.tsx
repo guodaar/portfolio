@@ -1,9 +1,6 @@
 import { BsGithub, BsLinkedin } from "react-icons/bs";
-import {
-  HiOutlineArrowNarrowLeft,
-  HiOutlineArrowNarrowRight,
-} from "react-icons/hi";
 
+import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 import styled from "styled-components";
 import { transition } from "../styles/stylevariables";
 
@@ -22,11 +19,7 @@ const SideBar = () => {
           </a>
         </li>
       </Socials>
-      <Email>
-        <HiOutlineArrowNarrowRight />
-        <p>guoda.arlauskaite@gmail.com</p>
-        <HiOutlineArrowNarrowLeft />
-      </Email>
+      <ScrollToTop />
     </Container>
   );
 };
@@ -39,7 +32,8 @@ const Container = styled.aside`
   top: 14vh;
   display: flex;
   flex-direction: column;
-  gap: 200px;
+  height: 80vh;
+  justify-content: space-between;
   align-items: center;
   padding-right: 0.5vw;
   width: 1vw;
@@ -62,21 +56,6 @@ const Socials = styled.ul`
   }
 
   svg {
-    font-size: 1.4rem;
-  }
-`;
-
-const Email = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transform: rotate(90deg);
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 1.2px;
-
-  svg {
-    margin-top: 5px;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 `;

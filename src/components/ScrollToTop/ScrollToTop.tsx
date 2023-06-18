@@ -39,9 +39,6 @@ const Container = styled.div`
   svg {
     color: ${({ theme }) => theme.text};
     font-size: 3.5rem;
-    position: fixed;
-    bottom: 50px;
-    right: 7vw;
     z-index: 20;
     cursor: pointer;
     animation: movebtn 3s ease-in-out infinite;
