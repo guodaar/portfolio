@@ -2,6 +2,7 @@ import { HiMoon, HiOutlineMoon, HiOutlineSun, HiSun } from "react-icons/hi";
 
 import Button from "../components/Button/Button";
 import styled from "styled-components";
+import { useScrollDirection } from "../hooks/useScrollDirection";
 import { useState } from "react";
 
 type Props = {
@@ -22,6 +23,7 @@ const TopBar = ({
   contactRef,
 }: Props) => {
   const [isHovered, setIsHovered] = useState(false);
+  const scrollDirection = useScrollDirection();
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -36,7 +38,7 @@ const TopBar = ({
   };
 
   return (
-    <Container>
+    <Container scrollDirection={scrollDirection}>
       <Logo>Guoda Codes</Logo>
       <Menu>
         <Navigation>
@@ -71,12 +73,15 @@ const TopBar = ({
 
 export default TopBar;
 
-const Container = styled.header`
+const Container = styled.header<{ scrollDirection: "up" | "down" | null }>`
+  position: sticky;
   background-color: ${({ theme }) => theme.background};
   color: ${({ theme }) => theme.text};
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: all 500ms;
+  top: ${({ scrollDirection }) => (scrollDirection === "up" ? "0px" : "-90px")};
 `;
 
 const Logo = styled.h1``;
@@ -125,7 +130,7 @@ const NavItem = styled.a`
 
 const ThemeToggle = styled.div`
   svg {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
     color: ${({ theme }) => theme.contrast};
   }
 

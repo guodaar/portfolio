@@ -27,7 +27,7 @@ function App() {
           <Route path="skills" element={<Skills skillsRef={skillsRef} />} />
         </Route>
       </Routes> */}
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
       <Home mainRef={mainRef} />
       <About aboutRef={aboutRef} />
       <Skills skillsRef={skillsRef} />
