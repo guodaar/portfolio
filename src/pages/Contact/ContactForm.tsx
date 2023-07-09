@@ -1,10 +1,10 @@
 import * as Yup from "yup";
 
-import { ErrorMessage, Field, Form, Formik, FormikHelpers } from "formik";
-import { border, roundedBorder, transition } from "../../styles/stylevariables";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 
 import Button from "../../components/Button/Button";
 import axios from "axios";
+import { roundedBorder } from "../../styles/stylevariables";
 import styled from "styled-components";
 import { useState } from "react";
 
@@ -98,8 +98,7 @@ const ContactForm = ({ closeForm }: Props) => {
 export default ContactForm;
 
 const StyledForm = styled(Form)`
-  padding: 32px 10vw;
-  margin: 24px auto;
+  padding: 0 10vw;
   display: flex;
   flex-direction: column;
   gap: 24px;

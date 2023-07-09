@@ -51,13 +51,18 @@ export default Contact;
 const Container = styled.section`
   border-radius: ${roundedBorder};
   background-color: ${({ theme }) => theme.secondary};
-  padding: 20px 10vw;
+  padding: 24px 10vw;
 `;
 
 const TextWrapper = styled.div`
-  text-align: center;
+  margin: 32px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
 `;
 
 const Text = styled.p`
   font-size: 2rem;
+  margin: 0;
 `;
