@@ -1,6 +1,6 @@
-import { Theme } from "./types";
+import { DefaultTheme } from "styled-components";
 
-const darkTheme: Theme = {
+const darkTheme: DefaultTheme = {
   primary: "#5DEB41",
   primaryHover: "#34cb15",
   secondary: "#7664A9",
@@ -9,10 +9,10 @@ const darkTheme: Theme = {
   background: "#222325",
   indicator: "#1E9B04",
   contrast: "#ffffff",
-  neutral: "#222325",
+  neutral: "#454647",
 };
 
-const lightTheme: Theme = {
+const lightTheme: DefaultTheme = {
   primary: "#ffc73a",
   primaryHover: "#f5af00",
   secondary: "#949CFF",

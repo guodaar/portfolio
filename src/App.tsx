@@ -3,16 +3,15 @@ import Contact from "./pages/Contact/Contact";
 import Home from "./pages/Home/Home";
 import Layout from "./layout/Layout";
 import Projects from "./pages/Projects/Projects";
-import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import Skills from "./pages/Skills/Skills";
 import { useRef } from "react";
 
 function App() {
-  const mainRef = useRef<null | HTMLElement>(null);
-  const aboutRef = useRef<null | HTMLElement>(null);
-  const skillsRef = useRef<null | HTMLElement>(null);
-  const projectsRef = useRef<null | HTMLElement>(null);
-  const contactRef = useRef<null | HTMLElement>(null);
+  const mainRef = useRef<HTMLElement>(null);
+  const aboutRef = useRef<HTMLElement>(null);
+  const skillsRef = useRef<HTMLElement>(null);
+  const projectsRef = useRef<HTMLElement>(null);
+  const contactRef = useRef<HTMLElement>(null);
 
   return (
     <Layout
@@ -21,15 +20,8 @@ function App() {
       projectsRef={projectsRef}
       contactRef={contactRef}
     >
-      {/* <Routes>
-        <Route path="/" element={<Home mainRef={mainRef} />}>
-          <Route path="about" element={<About aboutRef={aboutRef} />} />
-          <Route path="skills" element={<Skills skillsRef={skillsRef} />} />
-        </Route>
-      </Routes> */}
-      {/* <ScrollToTop /> */}
       <Home mainRef={mainRef} />
-      <About aboutRef={aboutRef} />
+      <About aboutRef={aboutRef} skillsRef={skillsRef} />
       <Skills skillsRef={skillsRef} />
       <Projects projectsRef={projectsRef} />
       <Contact contactRef={contactRef} />
