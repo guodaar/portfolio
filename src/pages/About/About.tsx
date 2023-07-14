@@ -1,3 +1,5 @@
+import { borderRadius, roundedBorder } from "../../styles/stylevariables";
+
 import SectionHeader from "../../components/Headers/SectionHeader";
 import styled from "styled-components";
 
@@ -23,10 +25,10 @@ const About = ({ aboutRef, skillsRef }: Props) => {
             clean and efficient code.
           </Text>
           <Text>
-            I thrive on bringing creative ideas to life and transforming them
-            into captivating web experiences. With a keen eye for design and a
-            passion for front-end development, I enjoy pushing the boundaries of
-            what's possible in the digital space.
+            My passion lies in combining my technical expertise with my innate
+            creativity to craft visually captivating and user-friendly websites.
+            By seamlessly blending aesthetics with functionality, I aim to bring
+            ideas to life and make online interactions engaging and memorable.
           </Text>
           <Text>
             I am constantly seeking new challenges and opportunities to expand

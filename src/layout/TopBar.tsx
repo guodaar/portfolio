@@ -80,6 +80,7 @@ const Container = styled.header<{ scrollDirection: "up" | "down" | null }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 999;
   transition: top 500ms;
   top: ${({ scrollDirection }) => (scrollDirection === "up" ? "0px" : "-90px")};
 `;

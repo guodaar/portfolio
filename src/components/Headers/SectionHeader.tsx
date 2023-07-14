@@ -33,4 +33,5 @@ const Container = styled.div`
 
 const Text = styled.h2`
   color: ${({ theme }) => theme.text};
+  margin: 0;
 `;

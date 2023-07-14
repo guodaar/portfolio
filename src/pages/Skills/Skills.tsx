@@ -23,7 +23,7 @@ const Skills = ({ skillsRef }: Props) => {
 export default Skills;
 
 const Container = styled.section`
-  height: fit-content;
+  /* height: fit-content; */
 `;
 
 const SkillsContainer = styled.div`
@@ -31,5 +31,5 @@ const SkillsContainer = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   grid-auto-rows: 200px;
   gap: 18px;
-  margin: 32px 0;
+  margin: 32px 0 64px;
 `;
