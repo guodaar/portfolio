@@ -1,6 +1,6 @@
 import ProjectCard from "./ProjectCard";
 import SectionHeader from "../../components/Headers/SectionHeader";
-import { projects } from "./ProjectsList";
+import { projects } from "./projectsList";
 import styled from "styled-components";
 
 type Props = {
@@ -13,12 +13,15 @@ const Projects = ({ projectsRef }: Props) => {
       <SectionHeader>Projects</SectionHeader>
       <CardsWrapper>
         {projects.map((project) => (
-          <ProjectCard
-            key={project.name}
-            name={project.name}
-            description={project.description}
-            tools={project.built_using}
-          />
+          <div>
+            <ProjectCard
+              key={project.name}
+              name={project.name}
+              description={project.description}
+              tools={project.built_using}
+              photos={project.photos}
+            />
+          </div>
         ))}
       </CardsWrapper>
     </Container>
@@ -34,4 +37,8 @@ const CardsWrapper = styled.div`
   flex-direction: column;
   gap: 32px;
   margin: 32px 0 64px;
+
+  & > div:nth-child(even) {
+    flex-direction: row-reverse;
+  }
 `;
