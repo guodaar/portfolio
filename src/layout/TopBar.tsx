@@ -1,4 +1,10 @@
-import { HiMoon, HiOutlineMoon, HiOutlineSun, HiSun } from "react-icons/hi";
+import {
+  HiMoon,
+  HiOutlineMoon,
+  HiOutlinePencilAlt,
+  HiOutlineSun,
+  HiSun,
+} from "react-icons/hi";
 
 import Button from "../components/Button/Button";
 import styled from "styled-components";
@@ -48,6 +54,7 @@ const TopBar = ({
         </Navigation>
         <Button onClick={() => handleScroll(contactRef)} accent>
           Contact me
+          <HiOutlinePencilAlt />
         </Button>
         <ThemeToggle
           onClick={toggleTheme}

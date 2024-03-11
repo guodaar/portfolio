@@ -1,33 +1,60 @@
+import Button from "../../components/Button/Button";
 import Carousel from "../../components/Carousel/Carousel";
+import { HiOutlineExternalLink } from "react-icons/hi";
 import { PropsWithChildren } from "react";
 import { roundedBorder } from "../../styles/stylevariables";
 import styled from "styled-components";
 
 interface Props extends PropsWithChildren {
-  name: string;
+  title: string;
+  subtitle: string;
   description: string;
   tools: string[];
   photos: string[];
+  github: string;
+  demo: string;
 }
 
-const ProjectCard = ({ name, description, tools, photos }: Props) => {
+const ProjectCard = ({
+  title,
+  subtitle,
+  description,
+  tools,
+  photos,
+  github,
+  demo,
+}: Props) => {
   return (
     <MainContainer>
-      <PhotoContainer>
+      <LeftWrapper>
         <Carousel images={photos} />
-      </PhotoContainer>
-      <InfoContainer>
-        <h3>{name}</h3>
-        <p>{description}</p>
-        <ToolsContainer>
-          {tools.map((tool) => (
-            <DevIcon
-              src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tool}/${tool}-original.svg`}
-              alt={`Vector icon for ${tool}`}
-            />
-          ))}
-        </ToolsContainer>
-      </InfoContainer>
+      </LeftWrapper>
+      <RightWrapper>
+        <div>
+          <ToolsContainer>
+            {tools.map((tool) => (
+              <DevIcon
+                src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tool}/${tool}-original.svg`}
+                alt={`Vector icon for ${tool}`}
+              />
+            ))}
+          </ToolsContainer>
+          <Title>{title}</Title>
+          <Subtitle>{subtitle}</Subtitle>
+
+          <Description>{description}</Description>
+        </div>
+        <ButtonsContainer>
+          <Button onClick={() => window.open(`${github}`, "_blank")}>
+            View on GitHub
+            <HiOutlineExternalLink />
+          </Button>
+          <Button onClick={() => window.open(`${demo}`, "_blank")} accent>
+            Live demo
+            <HiOutlineExternalLink />
+          </Button>
+        </ButtonsContainer>
+      </RightWrapper>
     </MainContainer>
   );
 };
@@ -42,22 +69,50 @@ const MainContainer = styled.div`
   gap: 2vw;
 `;
 
-const PhotoContainer = styled.div`
+const LeftWrapper = styled.div`
   flex: 1.4;
 `;
 
-const InfoContainer = styled.div`
+const RightWrapper = styled.div`
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 const ToolsContainer = styled.div`
+  height: 50px;
+
+  img {
+    height: 40px;
+    margin: 0 8px 0 0;
+  }
+`;
+
+const ButtonsContainer = styled.div`
   display: flex;
-  justify-content: center;
-  gap: 8px;
-  height: 80px;
-  margin: 32px 0;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 16px;
 `;
 
 const DevIcon = styled.img`
   margin: 8px;
+`;
+
+const Title = styled.h3`
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin: 8px 0 16px;
+`;
+
+const Subtitle = styled.p`
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-style: italic;
+  margin: 0 0 16px 0;
+`;
+
+const Description = styled.p`
+  font-size: 1.1rem;
 `;

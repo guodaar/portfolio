@@ -47,26 +47,36 @@ const StyledButton = styled.button<{
   large: boolean;
   fullWidth: boolean;
 }>`
+  cursor: pointer;
+  border: ${border};
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  transition: ${transition};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: ${transition};
+
   background-color: ${({ accent, theme }) =>
-    accent ? theme.primary : theme.background};
+    accent ? theme.primary : theme.neutral};
   color: ${({ accent, theme }) => (accent ? darkColor : theme.contrast)};
   width: ${({ fullWidth }) => (fullWidth ? "100%" : "fit-content")};
   font-size: ${({ large }) => (large ? "1.3rem" : "1.1rem")};
-  cursor: pointer;
-  border: ${border};
   border-color: ${({ accent, theme }) =>
     accent ? theme.primary : theme.border};
   border-radius: ${roundedBorder};
   padding: ${({ large }) => (large ? "18px 24px" : "10px 18px")};
-  font-weight: 600;
-  letter-spacing: 1.2px;
-  transition: ${transition};
 
   &:hover {
     background-color: ${({ accent, theme }) =>
-      accent ? theme.primaryHover : theme.primaryHover};
+      accent ? theme.primaryHover : theme.darkerBackground};
     border-color: ${({ accent, theme }) =>
-      accent ? theme.primaryHover : theme.primaryHover};
-    color: ${darkColor};
+      accent ? theme.primaryHover : theme.border};
+    color: ${({ accent, theme }) => (accent ? darkColor : theme.border)};
+  }
+
+  svg {
+    font-size: 1.4rem;
   }
 `;

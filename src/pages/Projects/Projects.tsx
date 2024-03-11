@@ -15,11 +15,14 @@ const Projects = ({ projectsRef }: Props) => {
         {projects.map((project) => (
           <div>
             <ProjectCard
-              key={project.name}
-              name={project.name}
+              key={project.title}
+              title={project.title}
+              subtitle={project.subtitle}
               description={project.description}
               tools={project.built_using}
               photos={project.photos}
+              demo={project.demo_link}
+              github={project.github_link}
             />
           </div>
         ))}
