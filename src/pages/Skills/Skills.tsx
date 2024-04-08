@@ -1,4 +1,5 @@
 import SectionHeader from "../../components/Headers/SectionHeader";
+import { device } from "../../styles/breakpoints";
 import SkillBubble from "./SkillBubble";
 import { skills } from "./skillsList";
 import styled from "styled-components";
@@ -22,9 +23,7 @@ const Skills = ({ skillsRef }: Props) => {
 
 export default Skills;
 
-const Container = styled.section`
-  /* height: fit-content; */
-`;
+const Container = styled.section``;
 
 const SkillsContainer = styled.div`
   display: grid;
@@ -32,4 +31,9 @@ const SkillsContainer = styled.div`
   grid-auto-rows: 200px;
   gap: 18px;
   margin: 32px 0 64px;
+
+  @media ${device.md} {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-auto-rows: 140px;
+  }
 `;

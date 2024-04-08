@@ -39,7 +39,7 @@ const Carousel = ({ images }: Props) => {
 export default Carousel;
 
 const Container = styled.div`
-  min-height: 250px;
+  /* min-height: 250px; */
   display: flex;
 
   img {

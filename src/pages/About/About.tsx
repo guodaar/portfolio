@@ -1,7 +1,6 @@
-import { borderRadius, roundedBorder } from "../../styles/stylevariables";
-
 import SectionHeader from "../../components/Headers/SectionHeader";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
+import { theme } from "../../styles/theme";
 
 type Props = {
   aboutRef: React.RefObject<HTMLElement>;
@@ -9,6 +8,8 @@ type Props = {
 };
 
 const About = ({ aboutRef, skillsRef }: Props) => {
+  const theme = useTheme();
+
   const handleScroll = (ref: React.RefObject<HTMLElement>) => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -43,7 +44,9 @@ const About = ({ aboutRef, skillsRef }: Props) => {
             remarkable digital experiences together.
           </Text>
         </TextContainer>
-        <PhotoContainer></PhotoContainer>
+        <PhotoContainer>
+          <ProfilePic src={theme.profilePhoto} alt="profile photo" />
+        </PhotoContainer>
       </ContentWrapper>
     </Container>
   );
@@ -58,10 +61,12 @@ const Container = styled.section`
 const ContentWrapper = styled.div`
   display: flex;
   margin: 32px 0;
+  position: relative;
 `;
 
 const TextContainer = styled.div`
-  flex: 1.5;
+  flex: 1;
+  z-index: 2;
 `;
 
 const Text = styled.p`
@@ -79,5 +84,12 @@ const Link = styled.a`
 `;
 
 const PhotoContainer = styled.div`
+  position: absolute;
+  left: 50%;
+  z-index: 1;
   flex: 1;
+`;
+
+const ProfilePic = styled.img`
+  max-height: 600px;
 `;

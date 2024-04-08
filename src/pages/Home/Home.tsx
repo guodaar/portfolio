@@ -7,7 +7,10 @@ type Props = {
 const Home = ({ mainRef }: Props) => {
   return (
     <Container ref={mainRef}>
-      <Wrapper>Hello</Wrapper>
+      <Wrapper>
+        <p>Hi, my name is</p>
+        <h2>Guoda. And I code.</h2>
+      </Wrapper>
     </Container>
   );
 };

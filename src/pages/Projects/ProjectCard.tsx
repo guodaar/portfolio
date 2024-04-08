@@ -4,6 +4,7 @@ import { HiOutlineExternalLink } from "react-icons/hi";
 import { PropsWithChildren } from "react";
 import { roundedBorder } from "../../styles/stylevariables";
 import styled from "styled-components";
+import { device } from "../../styles/breakpoints";
 
 interface Props extends PropsWithChildren {
   title: string;
@@ -67,6 +68,11 @@ const MainContainer = styled.div`
   padding: 40px;
   display: flex;
   gap: 2vw;
+
+  @media ${device.lg} {
+    flex-direction: column;
+    gap: 48px;
+  }
 `;
 
 const LeftWrapper = styled.div`
@@ -94,6 +100,10 @@ const ButtonsContainer = styled.div`
   justify-content: flex-end;
   gap: 16px;
   margin-top: 16px;
+
+  @media ${device.md} {
+    flex-direction: column;
+  }
 `;
 
 const DevIcon = styled.img`

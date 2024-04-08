@@ -1,3 +1,4 @@
+import { device } from "../../styles/breakpoints";
 import { borderRadius } from "../../styles/stylevariables";
 import styled from "styled-components";
 
@@ -39,6 +40,10 @@ const DevIcon = styled.img`
   ${Container}:hover & {
     opacity: 0;
   }
+
+  @media ${device.md} {
+    height: 90px;
+  }
 `;
 
 const Title = styled.h4`
@@ -47,5 +52,9 @@ const Title = styled.h4`
 
   ${Container}:hover & {
     opacity: 1;
+  }
+
+  @media ${device.md} {
+    font-size: 1rem;
   }
 `;

@@ -12,5 +12,6 @@ declare module "styled-components" {
     indicator?: string;
     contrast?: string;
     neutral?: string;
+    profilePhoto?: string;
   }
 }

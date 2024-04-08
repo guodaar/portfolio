@@ -2,6 +2,7 @@ import ProjectCard from "./ProjectCard";
 import SectionHeader from "../../components/Headers/SectionHeader";
 import { projects } from "./projectsList";
 import styled from "styled-components";
+import { device } from "../../styles/breakpoints";
 
 type Props = {
   projectsRef: React.RefObject<HTMLElement>;
