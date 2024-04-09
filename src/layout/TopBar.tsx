@@ -1,15 +1,12 @@
-import {
-  HiMoon,
-  HiOutlineMoon,
-  HiOutlinePencilAlt,
-  HiOutlineSun,
-  HiSun,
-} from "react-icons/hi";
+import { HiMenu, HiOutlinePencilAlt, HiX } from "react-icons/hi";
 
 import Button from "../components/Button/Button";
 import styled from "styled-components";
 import { useScrollDirection } from "../hooks/useScrollDirection";
 import { useState } from "react";
+import { device } from "../styles/breakpoints";
+import { border } from "../styles/stylevariables";
+import ThemeToggle from "../components/ThemeToggle/ThemeToggle";
 
 type Props = {
   isDarkMode: boolean;
@@ -28,25 +25,25 @@ const TopBar = ({
   projectsRef,
   contactRef,
 }: Props) => {
-  const [isHovered, setIsHovered] = useState(false);
   const scrollDirection = useScrollDirection();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen((open) => !open);
   };
 
   const handleScroll = (ref: React.RefObject<HTMLElement>) => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
+    setIsMobileMenuOpen(false);
   };
 
   return (
     <Container scrollDirection={scrollDirection}>
       <Logo>Guoda Codes</Logo>
-      <Menu>
+      <MobileMenuButton onClick={toggleMobileMenu}>
+        {isMobileMenuOpen ? <HiX /> : <HiMenu />}
+      </MobileMenuButton>
+      <MenuContainer isOpen={isMobileMenuOpen}>
         <Navigation>
           <NavItem onClick={() => handleScroll(aboutRef)}>About me</NavItem>
           <NavItem onClick={() => handleScroll(skillsRef)}>Skills</NavItem>
@@ -56,24 +53,8 @@ const TopBar = ({
           Contact me
           <HiOutlinePencilAlt />
         </Button>
-        <ThemeToggle
-          onClick={toggleTheme}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          {isDarkMode ? (
-            isHovered ? (
-              <HiSun />
-            ) : (
-              <HiOutlineSun />
-            )
-          ) : isHovered ? (
-            <HiMoon />
-          ) : (
-            <HiOutlineMoon />
-          )}
-        </ThemeToggle>
-      </Menu>
+        <ThemeToggle toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
+      </MenuContainer>
     </Container>
   );
 };
@@ -94,15 +75,44 @@ const Container = styled.header<{ scrollDirection: "up" | "down" | null }>`
 
 const Logo = styled.h1``;
 
-const Menu = styled.div`
+const MobileMenuButton = styled.div`
+  display: none;
+
+  svg {
+    font-size: 2rem;
+  }
+
+  @media ${device.md} {
+    display: block;
+  }
+`;
+
+const MenuContainer = styled.div<{ isOpen: boolean }>`
   display: flex;
   align-items: center;
   gap: 3vw;
+
+  @media ${device.md} {
+    flex-direction: column;
+    align-items: flex-end;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    border: ${border};
+    background-color: ${({ theme }) => theme.background};
+    transition: transform 0.5s ease;
+    transform: translateY(${({ isOpen }) => (isOpen ? "0" : "-100vh")});
+  }
 `;
 
 const Navigation = styled.nav`
   display: flex;
   gap: 2vw;
+
+  @media ${device.md} {
+    flex-direction: column;
+  }
 `;
 
 const NavItem = styled.a`
@@ -133,16 +143,5 @@ const NavItem = styled.a`
   &:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
-  }
-`;
-
-const ThemeToggle = styled.div`
-  svg {
-    font-size: 1.8rem;
-    color: ${({ theme }) => theme.contrast};
-  }
-
-  &:hover {
-    cursor: pointer;
   }
 `;

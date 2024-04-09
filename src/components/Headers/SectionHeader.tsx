@@ -19,7 +19,7 @@ const SectionHeader = ({ children }: PropsWithChildren) => {
 export default SectionHeader;
 
 const Container = styled.div`
-  padding: 6px 3vw;
+  padding: 32px 3vw 6px;
   width: fit-content;
   font-size: 0.9rem;
   display: flex;

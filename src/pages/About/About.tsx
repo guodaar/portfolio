@@ -45,7 +45,7 @@ const About = ({ aboutRef, skillsRef }: Props) => {
           </Text>
         </TextContainer>
         <PhotoContainer>
-          <ProfilePic src={theme.profilePhoto} alt="profile photo" />
+          {/* <ProfilePic src={theme.profilePhoto} alt="profile photo" /> */}
         </PhotoContainer>
       </ContentWrapper>
     </Container>
@@ -55,7 +55,7 @@ const About = ({ aboutRef, skillsRef }: Props) => {
 export default About;
 
 const Container = styled.section`
-  height: 100vh;
+  /* height: 100vh; */
 `;
 
 const ContentWrapper = styled.div`
