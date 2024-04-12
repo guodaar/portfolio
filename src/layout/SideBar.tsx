@@ -1,24 +1,17 @@
-import { BsGithub, BsLinkedin } from "react-icons/bs";
-
 import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 import styled from "styled-components";
-import { transition } from "../styles/stylevariables";
+import { device } from "../styles/breakpoints";
+import SocialIcons from "../components/Socials/Socials";
+import useScreenSize from "../hooks/useScreenSize";
 
 const SideBar = () => {
+  const screenSize = useScreenSize();
+
+  const isSmallScreen = screenSize <= 900;
+
   return (
     <Container>
-      <Socials>
-        <li>
-          <a href="https://www.linkedin.com/in/guodaar/" target="_blank">
-            <BsLinkedin />
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/guodaar" target="_blank">
-            <BsGithub />
-          </a>
-        </li>
-      </Socials>
+      {!isSmallScreen && <SocialIcons />}
       <ScrollToTop />
     </Container>
   );
@@ -37,25 +30,10 @@ const Container = styled.aside`
   align-items: center;
   padding-right: 0.5vw;
   width: 1vw;
-`;
+  z-index: 100;
 
-const Socials = styled.ul`
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  padding: 0;
-  gap: 18px;
-
-  a {
-    color: ${({ theme }) => theme.text};
-    transition: ${transition};
-  }
-
-  a:hover {
-    color: ${({ theme }) => theme.secondary};
-  }
-
-  svg {
-    font-size: 1.5rem;
+  @media ${device.md} {
+    right: 6vw;
+    justify-content: flex-end;
   }
 `;
