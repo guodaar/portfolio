@@ -2,7 +2,6 @@ import ProjectCard from "./ProjectCard";
 import SectionHeader from "../../components/Headers/SectionHeader";
 import { projects } from "./projectsList";
 import styled from "styled-components";
-import { device } from "../../styles/breakpoints";
 
 type Props = {
   projectsRef: React.RefObject<HTMLElement>;
@@ -14,9 +13,8 @@ const Projects = ({ projectsRef }: Props) => {
       <SectionHeader>Projects</SectionHeader>
       <CardsWrapper>
         {projects.map((project) => (
-          <div>
+          <div key={project.title}>
             <ProjectCard
-              key={project.title}
               title={project.title}
               subtitle={project.subtitle}
               description={project.description}

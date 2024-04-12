@@ -37,6 +37,7 @@ const ProjectCard = ({
               <DevIcon
                 src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tool}/${tool}-original.svg`}
                 alt={`Vector icon for ${tool}`}
+                key={tool}
               />
             ))}
           </ToolsContainer>
