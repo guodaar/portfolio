@@ -3,6 +3,7 @@ import ContactForm from "./ContactForm";
 import { roundedBorder } from "../../styles/stylevariables";
 import styled from "styled-components";
 import { useState } from "react";
+import { device } from "../../styles/breakpoints";
 
 type Props = {
   contactRef: React.RefObject<HTMLElement>;
@@ -52,6 +53,10 @@ const Container = styled.section`
   border-radius: ${roundedBorder};
   background-color: ${({ theme }) => theme.secondary};
   padding: 24px 10vw;
+
+  @media ${device.md} {
+    padding: 24px 4vw;
+  }
 `;
 
 const TextWrapper = styled.div`
@@ -60,9 +65,18 @@ const TextWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 32px;
+
+  @media ${device.md} {
+    margin: 16px 0 32px;
+  }
 `;
 
 const Text = styled.p`
   font-size: 2rem;
   margin: 0;
+  text-align: center;
+
+  @media ${device.md} {
+    font-size: 1.3rem;
+  }
 `;

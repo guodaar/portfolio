@@ -1,6 +1,6 @@
 import SectionHeader from "../../components/Headers/SectionHeader";
 import styled, { useTheme } from "styled-components";
-import { theme } from "../../styles/theme";
+import { device } from "../../styles/breakpoints";
 
 type Props = {
   aboutRef: React.RefObject<HTMLElement>;
@@ -72,6 +72,10 @@ const TextContainer = styled.div`
 const Text = styled.p`
   font-size: 1.3rem;
   margin: 0 0 18px;
+
+  @media ${device.md} {
+    font-size: 1.1rem;
+  }
 `;
 
 const Link = styled.a`

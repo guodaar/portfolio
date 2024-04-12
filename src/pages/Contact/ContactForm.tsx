@@ -7,6 +7,7 @@ import axios from "axios";
 import { roundedBorder } from "../../styles/stylevariables";
 import styled from "styled-components";
 import { useState } from "react";
+import { device } from "../../styles/breakpoints";
 
 const FORM_URL = import.meta.env.VITE_FORM_URL;
 
@@ -103,6 +104,10 @@ const StyledForm = styled(Form)`
   flex-direction: column;
   gap: 24px;
   justify-content: center;
+
+  @media ${device.md} {
+    padding: 0 2vw;
+  }
 `;
 
 const InputContainer = styled.div`
@@ -116,6 +121,10 @@ const InputsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 2vw;
+
+  @media ${device.md} {
+    flex-direction: column;
+  }
 `;
 
 const ButtonWrapper = styled.div`
@@ -141,6 +150,10 @@ const StyledLabel = styled.label`
   margin-left: 24px;
   font-size: 1.2rem;
   font-weight: 600;
+
+  @media ${device.md} {
+    font-size: 1rem;
+  }
 `;
 
 const StyledError = styled(ErrorMessage)`
