@@ -51,9 +51,9 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
-  margin: 0 3vw;
 `;
 
 const Content = styled.main`
   padding: 32px 5vw;
+  margin: 0 3vw;
 `;

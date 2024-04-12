@@ -5,8 +5,10 @@ import styled from "styled-components";
 import { useScrollDirection } from "../hooks/useScrollDirection";
 import { useState } from "react";
 import { device } from "../styles/breakpoints";
-import { border } from "../styles/stylevariables";
+import { borderRadius } from "../styles/stylevariables";
 import ThemeToggle from "../components/ThemeToggle/ThemeToggle";
+import useScreenSize from "../hooks/useScreenSize";
+import SocialIcons from "../components/Socials/Socials";
 
 type Props = {
   isDarkMode: boolean;
@@ -27,6 +29,9 @@ const TopBar = ({
 }: Props) => {
   const scrollDirection = useScrollDirection();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const screenSize = useScreenSize();
+
+  const isSmallScreen = screenSize <= 900;
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((open) => !open);
@@ -39,22 +44,26 @@ const TopBar = ({
 
   return (
     <Container scrollDirection={scrollDirection}>
-      <Logo>Guoda Codes</Logo>
       <MobileMenuButton onClick={toggleMobileMenu}>
-        {isMobileMenuOpen ? <HiX /> : <HiMenu />}
+        <HiMenu />
       </MobileMenuButton>
       <MenuContainer isOpen={isMobileMenuOpen}>
+        <MobileMenuButton onClick={toggleMobileMenu}>
+          {isMobileMenuOpen && <HiX />}
+        </MobileMenuButton>
+        <Logo>Guoda Codes</Logo>
         <Navigation>
           <NavItem onClick={() => handleScroll(aboutRef)}>About me</NavItem>
           <NavItem onClick={() => handleScroll(skillsRef)}>Skills</NavItem>
           <NavItem onClick={() => handleScroll(projectsRef)}>Projects</NavItem>
+          <Button onClick={() => handleScroll(contactRef)} accent>
+            Contact me
+            <HiOutlinePencilAlt />
+          </Button>
+          {isSmallScreen && <SocialIcons />}
         </Navigation>
-        <Button onClick={() => handleScroll(contactRef)} accent>
-          Contact me
-          <HiOutlinePencilAlt />
-        </Button>
-        <ThemeToggle toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
       </MenuContainer>
+      <ThemeToggle toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
     </Container>
   );
 };
@@ -68,6 +77,7 @@ const Container = styled.header<{ scrollDirection: "up" | "down" | null }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 3vw;
   z-index: 999;
   transition: top 500ms;
   top: ${({ scrollDirection }) => (scrollDirection === "up" ? "0px" : "-90px")};
@@ -77,6 +87,7 @@ const Logo = styled.h1``;
 
 const MobileMenuButton = styled.div`
   display: none;
+  margin: 16px;
 
   svg {
     font-size: 2rem;
@@ -90,28 +101,35 @@ const MobileMenuButton = styled.div`
 const MenuContainer = styled.div<{ isOpen: boolean }>`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 3vw;
 
   @media ${device.md} {
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
+    gap: 16px;
     position: absolute;
-    top: 60px;
-    right: 0;
-    width: 100%;
-    border: ${border};
-    background-color: ${({ theme }) => theme.background};
+    top: 0;
+    left: -3vw;
+    width: 70%;
+    padding: 0 3vw 32px;
+    border-top-right-radius: ${borderRadius};
+    border-bottom-right-radius: ${borderRadius};
+    background-color: ${({ theme }) => theme.darkerBackground};
     transition: transform 0.5s ease;
-    transform: translateY(${({ isOpen }) => (isOpen ? "0" : "-100vh")});
+    transform: translateX(${({ isOpen }) => (isOpen ? "0" : "-103vw")});
   }
 `;
 
 const Navigation = styled.nav`
   display: flex;
+  align-items: center;
   gap: 2vw;
 
   @media ${device.md} {
     flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
   }
 `;
 
