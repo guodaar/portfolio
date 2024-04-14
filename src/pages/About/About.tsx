@@ -18,35 +18,30 @@ const About = ({ aboutRef, skillsRef }: Props) => {
     <Container ref={aboutRef}>
       <SectionHeader>About Me</SectionHeader>
       <ContentWrapper>
+        <PhotoContainer>
+          <ProfilePic src={theme.profilePhoto} alt="profile photo" />
+        </PhotoContainer>
         <TextContainer>
           <Text>
-            Hello, I'm Guoda, a passionate web developer specializing in
-            front-end development. With a focus on creating engaging and
-            user-friendly experiences, I bring innovative ideas to life through
-            clean and efficient code.
+            Hi, I'm Guoda, a web developer who loves making websites look great
+            and easy to use. I use clean code to turn creative ideas into
+            reality, focusing on engaging designs and smooth functionality.
           </Text>
           <Text>
-            My passion lies in combining my technical expertise with my innate
-            creativity to craft visually captivating and user-friendly websites.
-            By seamlessly blending aesthetics with functionality, I aim to bring
-            ideas to life and make online interactions engaging and memorable.
+            I enjoy blending my technical skills with creativity to build
+            attractive websites that people love to use.
           </Text>
           <Text>
-            I am constantly seeking new challenges and opportunities to expand
-            my skill set, whether it's diving into new frameworks or exploring
-            emerging technologies. To learn more about my skill set, please
-            check out the{" "}
-            <Link onClick={() => handleScroll(skillsRef)}>Skills</Link> section
-            below.
+            I'm always ready for new challenges, like learning new tools and
+            technologies. Check out my{" "}
+            <Link onClick={() => handleScroll(skillsRef)}>Skills</Link> below to
+            learn more about what I can do.
           </Text>
           <Text>
-            Let's collaborate on your next web development venture and create
-            remarkable digital experiences together.
+            Let's work on your next web project and create awesome digital
+            experiences together!
           </Text>
         </TextContainer>
-        <PhotoContainer>
-          {/* <ProfilePic src={theme.profilePhoto} alt="profile photo" /> */}
-        </PhotoContainer>
       </ContentWrapper>
     </Container>
   );
@@ -55,18 +50,37 @@ const About = ({ aboutRef, skillsRef }: Props) => {
 export default About;
 
 const Container = styled.section`
-  /* height: 100vh; */
+  min-height: 90vh;
 `;
 
 const ContentWrapper = styled.div`
-  display: flex;
   margin: 32px 0;
-  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 3vw;
+
+  @media ${device.md} {
+    flex-direction: column;
+    gap: 32px;
+  }
+`;
+
+const PhotoContainer = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
 `;
 
 const TextContainer = styled.div`
-  flex: 1;
-  z-index: 2;
+  flex: 1.3;
+`;
+
+const ProfilePic = styled.img`
+  width: 100%;
+
+  @media ${device.md} {
+    width: 80%;
+  }
 `;
 
 const Text = styled.p`
@@ -74,7 +88,7 @@ const Text = styled.p`
   margin: 0 0 18px;
 
   @media ${device.md} {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 `;
 
@@ -85,15 +99,4 @@ const Link = styled.a`
   &:hover {
     text-decoration: none;
   }
-`;
-
-const PhotoContainer = styled.div`
-  position: absolute;
-  left: 50%;
-  z-index: 1;
-  flex: 1;
-`;
-
-const ProfilePic = styled.img`
-  max-height: 600px;
 `;
