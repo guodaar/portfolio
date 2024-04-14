@@ -13,5 +13,7 @@ declare module "styled-components" {
     contrast?: string;
     neutral?: string;
     profilePhoto?: string;
+    logo?: string;
+    grain?: string;
   }
 }

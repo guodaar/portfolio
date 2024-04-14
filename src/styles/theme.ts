@@ -1,6 +1,10 @@
 import { DefaultTheme } from "styled-components";
-import profile1 from "../assets/profile1.png";
-import profile2 from "../assets/profile2.png";
+import profileLight from "../assets/profile-light.png";
+import profileDark from "../assets/profile-dark.png";
+import logoLight from "../assets/logo-light.png";
+import logoDark from "../assets/logo-dark.png";
+import grainLight from "../assets/grain-light.png";
+import grainDark from "../assets/grain-dark.png";
 
 const darkTheme: DefaultTheme = {
   primary: "#5DEB41",
@@ -13,7 +17,9 @@ const darkTheme: DefaultTheme = {
   indicator: "#1E9B04",
   contrast: "#ffffff",
   neutral: "#454647",
-  profilePhoto: profile2,
+  profilePhoto: profileDark,
+  logo: logoDark,
+  grain: grainDark,
 };
 
 const lightTheme: DefaultTheme = {
@@ -27,7 +33,9 @@ const lightTheme: DefaultTheme = {
   indicator: "#FC7557",
   contrast: "#222325",
   neutral: "#ffffff",
-  profilePhoto: profile1,
+  profilePhoto: profileLight,
+  logo: logoLight,
+  grain: grainLight,
 };
 
 export const theme = {
