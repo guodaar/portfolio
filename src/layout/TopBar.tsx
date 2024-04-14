@@ -1,7 +1,7 @@
 import { HiMenu, HiOutlinePencilAlt, HiX } from "react-icons/hi";
 
 import Button from "../components/Button/Button";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { useScrollDirection } from "../hooks/useScrollDirection";
 import { useState } from "react";
 import { device } from "../styles/breakpoints";
@@ -30,6 +30,7 @@ const TopBar = ({
   const scrollDirection = useScrollDirection();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const screenSize = useScreenSize();
+  const theme = useTheme();
 
   const isSmallScreen = screenSize <= 900;
 
@@ -51,7 +52,7 @@ const TopBar = ({
         <MobileMenuButton onClick={toggleMobileMenu}>
           {isMobileMenuOpen && <HiX />}
         </MobileMenuButton>
-        <Logo>Guoda Codes</Logo>
+        <Logo src={theme.logo} alt="site-logo" />
         <Navigation>
           <NavItem onClick={() => handleScroll(aboutRef)}>About me</NavItem>
           <NavItem onClick={() => handleScroll(skillsRef)}>Skills</NavItem>
@@ -83,11 +84,15 @@ const Container = styled.header<{ scrollDirection: "up" | "down" | null }>`
   top: ${({ scrollDirection }) => (scrollDirection === "up" ? "0px" : "-90px")};
 `;
 
-const Logo = styled.h1``;
+const Logo = styled.img`
+  max-width: 150px;
+  padding: 8px;
+  margin-right: 32px;
+`;
 
 const MobileMenuButton = styled.div`
   display: none;
-  margin: 16px;
+  margin: 16px 0;
 
   svg {
     font-size: 2rem;
@@ -130,6 +135,7 @@ const Navigation = styled.nav`
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
+    margin-left: 2vw;
   }
 `;
 
