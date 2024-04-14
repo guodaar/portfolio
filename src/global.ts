@@ -19,13 +19,8 @@ body{
 }
 
 code {
-     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
-
-/* :root {
-    min-height: 100vh;
-    width: 100%;
-} */
 `;
 
 export default GlobalStyle;
