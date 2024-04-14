@@ -70,9 +70,10 @@ const MainContainer = styled.div`
   display: flex;
   gap: 2vw;
 
-  @media ${device.lg} {
+  @media ${device.md} {
     flex-direction: column;
     gap: 48px;
+    padding: 40px 1vw;
   }
 `;
 
@@ -85,6 +86,10 @@ const RightWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media ${device.md} {
+    padding: 0 32px;
+  }
 `;
 
 const ToolsContainer = styled.div`

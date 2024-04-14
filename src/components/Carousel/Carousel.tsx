@@ -3,6 +3,7 @@ import { border, borderRadius, transition } from "../../styles/stylevariables";
 
 import styled from "styled-components";
 import { useState } from "react";
+import { device } from "../../styles/breakpoints";
 
 type Props = {
   images: string[];
@@ -39,8 +40,13 @@ const Carousel = ({ images }: Props) => {
 export default Carousel;
 
 const Container = styled.div`
-  /* min-height: 250px; */
   display: flex;
+`;
+
+const ImageWrapper = styled.div`
+  border-radius: ${borderRadius};
+  border: 3px solid ${({ theme }) => theme.neutral};
+  outline: ${border};
 
   img {
     height: 100%;
@@ -48,12 +54,6 @@ const Container = styled.div`
     object-fit: cover;
     border-radius: 8px;
   }
-`;
-
-const ImageWrapper = styled.div`
-  border-radius: ${borderRadius};
-  border: 3px solid ${({ theme }) => theme.neutral};
-  outline: ${border};
 `;
 
 const ButtonContainer = styled.div`
@@ -64,6 +64,10 @@ const ButtonContainer = styled.div`
     cursor: pointer;
     font-size: 3rem;
     transition: ${transition};
+
+    @media ${device.md} {
+      font-size: 2rem;
+    }
   }
 
   svg:hover {

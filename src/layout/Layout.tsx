@@ -6,6 +6,7 @@ import GlobalStyle from "../global";
 import SideBar from "./SideBar";
 import TopBar from "./TopBar";
 import { theme } from "../styles/theme";
+import { device } from "../styles/breakpoints";
 
 interface LayoutProps extends PropsWithChildren {
   aboutRef: React.RefObject<HTMLElement>;
@@ -56,4 +57,8 @@ const Container = styled.div`
 const Content = styled.main`
   padding: 32px 5vw;
   margin: 0 3vw;
+
+  @media ${device.md} {
+    padding: 32px 2vw;
+  }
 `;
