@@ -27,12 +27,12 @@ const Home = ({ mainRef }: Props) => {
 export default Home;
 
 const Container = styled.section`
-  height: 100vh;
+  margin-bottom: 64px;
 `;
 
 const Wrapper = styled.div`
   border-radius: 50px;
-  padding: 24px 5vw;
+  padding: 24px 15vw 24px 5vw;
   background-image: ${({ theme }) => `url(${theme.grain})`};
   background-size: cover;
   background-repeat: no-repeat;
@@ -40,6 +40,12 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+
+  @media ${device.md} {
+    padding: 24px 5vw;
+    min-height: 30vh;
+  }
 `;
 
 const TitleText = styled.h2`
@@ -47,19 +53,19 @@ const TitleText = styled.h2`
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
-  font-size: 10rem;
-  margin: 0 0 0 5vw;
+  font-size: 9vw;
+  margin: 0;
 
   svg {
-    font-size: 7rem;
+    font-size: 6vw;
     color: ${({ theme }) => theme.background};
   }
 
-  @media ${device.lg} {
-    font-size: 8rem;
+  @media ${device.md} {
+    font-size: 15vw;
 
     svg {
-      font-size: 5rem;
+      font-size: 10vw;
     }
   }
 `;
@@ -69,24 +75,29 @@ const SubtitleText = styled.h2`
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
-  font-size: 6rem;
-  margin: 0 0 32px 25vw;
+  font-size: 6vw;
+  margin: 0 0 32px 20vw;
 
   svg {
-    font-size: 4.5rem;
+    font-size: 4.5vw;
     color: ${({ theme }) => theme.background};
   }
 
-  @media ${device.lg} {
-    font-size: 4.2rem;
+  @media ${device.md} {
+    font-size: 7vw;
 
     svg {
-      font-size: 3rem;
+      font-size: 5vw;
     }
   }
 `;
 
 const Text = styled.p`
-  font-size: 1.8rem;
+  font-size: 1.8vw;
   margin-bottom: 0;
+  margin-left: -20vw;
+
+  @media ${device.md} {
+    font-size: 4vw;
+  }
 `;

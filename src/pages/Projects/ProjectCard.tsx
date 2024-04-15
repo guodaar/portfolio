@@ -130,5 +130,5 @@ const Subtitle = styled.p`
 `;
 
 const Description = styled.p`
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 `;

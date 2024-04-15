@@ -1,7 +1,4 @@
-import {
-  HiOutlineArrowNarrowLeft,
-  HiOutlineArrowNarrowRight,
-} from "react-icons/hi";
+import { LuSparkle, LuSparkles } from "react-icons/lu";
 
 import { PropsWithChildren } from "react";
 import styled from "styled-components";
@@ -9,9 +6,9 @@ import styled from "styled-components";
 const SectionHeader = ({ children }: PropsWithChildren) => {
   return (
     <Container>
-      <HiOutlineArrowNarrowRight />
+      <LuSparkle />
       <Text>{children}</Text>
-      <HiOutlineArrowNarrowLeft />
+      <LuSparkles />
     </Container>
   );
 };
@@ -19,19 +16,24 @@ const SectionHeader = ({ children }: PropsWithChildren) => {
 export default SectionHeader;
 
 const Container = styled.div`
-  padding: 32px 3vw 6px;
+  padding: 32px 0 6px;
   width: fit-content;
-  font-size: 0.9rem;
   display: flex;
   align-items: center;
   gap: 12px;
 
   svg {
     font-size: 1.7rem;
+    color: ${({ theme }) => theme.secondary};
   }
 `;
 
 const Text = styled.h2`
   color: ${({ theme }) => theme.text};
   margin: 0;
+  font-family: "MuseoModerno", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 2rem;
 `;

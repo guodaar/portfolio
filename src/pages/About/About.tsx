@@ -67,8 +67,12 @@ const ContentWrapper = styled.div`
 
 const PhotoContainer = styled.div`
   flex: 1;
-  display: flex;
-  justify-content: center;
+  display: block;
+
+  @media ${device.md} {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -79,6 +83,10 @@ const ProfilePic = styled.img`
   width: 100%;
 
   @media ${device.md} {
+    width: 60%;
+  }
+
+  @media ${device.sm} {
     width: 80%;
   }
 `;
