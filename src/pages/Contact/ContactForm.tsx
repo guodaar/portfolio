@@ -6,7 +6,6 @@ import Button from "../../components/Button/Button";
 import axios from "axios";
 import { roundedBorder } from "../../styles/stylevariables";
 import styled from "styled-components";
-import { useState } from "react";
 import { device } from "../../styles/breakpoints";
 
 const FORM_URL = import.meta.env.VITE_FORM_URL;
@@ -36,15 +35,11 @@ const validationSchema = Yup.object().shape({
 });
 
 const ContactForm = ({ closeForm }: Props) => {
-  const [query, setQuery] = useState(initialValues);
-
   const handleSubmit = (values: FormData) => {
     axios
       .post(FORM_URL, values, { headers: { Accept: "application/json" } })
-      .then((response) => {
-        setQuery(initialValues);
+      .then(() => {
         closeForm();
-        console.log(response);
       })
       .catch((error) => {
         console.log(error);
